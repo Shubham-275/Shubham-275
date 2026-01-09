@@ -23,6 +23,7 @@ I follow my curiosity: apps, libraries, automations, infra, browser extensions, 
 ![OpenCV](https://img.shields.io/badge/-OpenCV-5C3EE8?style=flat-square&logo=opencv&logoColor=white)
 ![scikit-learn](https://img.shields.io/badge/-scikit--learn-F7931E?style=flat-square&logo=scikitlearn&logoColor=white)
 ![Docker](https://img.shields.io/badge/-Docker-2496ED?style=flat-square&logo=docker&logoColor=white)
+
 </div>
 
 ---
@@ -59,8 +60,8 @@ A few more projects and automation experiments I maintain:
 
 <div align="center">
 
-[![Shubham's GitHub Stats](https://github-readme-stats.vercel.app/api?username=Shubham-275&show_icons=true&theme=radical&hide_border=true)](https://github.com/Shubham-275)  
-[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=Shubham-275&layout=compact&theme=radical&hide_border=true)](https://github.com/Shubham-275)
+![Shubham's GitHub Stats](./assets/github-stats.svg)  
+![Top Langs](./assets/top-langs.svg)
 
 </div>
 
@@ -70,7 +71,7 @@ A few more projects and automation experiments I maintain:
 
 ### 📫 Reach Me
 
-[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](shubhamkhandelwal2023@gmail.com)  
+[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:shubhamkhandelwal2023@gmail.com)  
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/shubham-khandelwal8/)  
 [![Twitter](https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://x.com/_shakechilli_)
 
