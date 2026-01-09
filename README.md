@@ -23,8 +23,6 @@ I follow my curiosity: apps, libraries, automations, infra, browser extensions, 
 ![OpenCV](https://img.shields.io/badge/-OpenCV-5C3EE8?style=flat-square&logo=opencv&logoColor=white)
 ![scikit-learn](https://img.shields.io/badge/-scikit--learn-F7931E?style=flat-square&logo=scikitlearn&logoColor=white)
 ![Docker](https://img.shields.io/badge/-Docker-2496ED?style=flat-square&logo=docker&logoColor=white)
-![AWS](https://img.shields.io/badge/-AWS-232F3E?style=flat-square&logo=amazon-aws&logoColor=white)
-
 </div>
 
 ---
@@ -72,25 +70,10 @@ A few more projects and automation experiments I maintain:
 
 ### 📫 Reach Me
 
-[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:your-email@example.com)  
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/your-linkedin)  
-[![Twitter](https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/your-handle)
+[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](shubhamkhandelwal2023@gmail.com)  
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/shubham-khandelwal8/)  
+[![Twitter](https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://x.com/_shakechilli_)
 
 </div>
 
 ---
-
-## TODO / Suggestions
-
-- Replace contact placeholders (email, LinkedIn, Twitter).  
-- Add 1–2 screenshots or a short GIF per featured project (store under `/assets` and reference them).  
-- For private repos you want to showcase, add a short anonymized GIF or sanitized README describing tech choices without secrets.  
-- Optional: add a GitHub Action to update a small "What I’m working on" line.
-
----
-
-If this looks good I can:
-- update wording further (more minimal or more playful), or
-- push this README into a repo named exactly `Shubham-275` once you create that repo and tell me to proceed.
-
-Would you like me to (a) add or remove any specific skills/badges, (b) change tone, or (c) push this to a new repo when you create it?
