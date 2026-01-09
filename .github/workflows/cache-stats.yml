@@ -1,65 +1,46 @@
-name: cache-github-stats
-on:
-  push:
-    branches: [ main ]
-  schedule:
-    - cron: '0 */12 * * *' # Updates every 12 hours
-  workflow_dispatch:
+name: Update GitHub Stats
 
+on:
+  schedule:
+    - cron: '0 */12 * * *' # Run every 12 hours
+  workflow_dispatch:       # Allows manual run
+
+# Give permission to commit the generated files
 permissions:
   contents: write
 
 jobs:
-  fetch-stats:
+  update-stats:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Create assets dir
-        run: mkdir -p assets
+      # Generate the Main Stats Card locally
+      - name: Generate GitHub Stats
+        uses: readme-tools/github-readme-stats-action@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          card: stats
+          # Your specific options from the URL
+          options: username=Shubham-275&show_icons=true&theme=radical&hide_border=true
+          path: assets/github-stats.svg
 
-      - name: Download Stats using Python
-        run: |
-          python3 -c "
-          import urllib.request
-          import sys
+      # Generate the Top Languages Card locally
+      - name: Generate Top Langs
+        uses: readme-tools/github-readme-stats-action@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          card: top-langs
+          # Your specific options from the URL
+          options: username=Shubham-275&layout=compact&theme=radical&hide_border=true
+          path: assets/top-langs.svg
 
-          # 1. Define the files and URLs
-          files = {
-              'assets/github-stats.svg': 'https://github-readme-stats.vercel.app/api?username=Shubham-275&show_icons=true&theme=radical&hide_border=true',
-              'assets/top-langs.svg': 'https://github-readme-stats.vercel.app/api/top-langs/?username=Shubham-275&layout=compact&theme=radical&hide_border=true'
-          }
-
-          # 2. Fake a browser User-Agent to bypass blocks
-          headers = {
-              'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
-          }
-
-          for filename, url in files.items():
-              print(f'Downloading {filename}...')
-              try:
-                  req = urllib.request.Request(url, headers=headers)
-                  with urllib.request.urlopen(req) as response:
-                      data = response.read()
-                      
-                      # 3. CRITICAL: Check if the file is actually an SVG
-                      if b'<svg' not in data and b'<SVG' not in data:
-                          print(f'❌ Error: The server returned something that is NOT an SVG for {filename}.')
-                          print('Server response preview:', data[:200]) # Print error to logs
-                          sys.exit(1) # Fail the workflow so we don't commit garbage
-                      
-                      with open(filename, 'wb') as f:
-                          f.write(data)
-                      print(f'✅ Saved {filename}')
-              except Exception as e:
-                  print(f'❌ Failed to download {filename}: {e}')
-                  sys.exit(1)
-          "
-
-      - name: Commit & push changes
+      # Commit the new files back to the repository
+      - name: Commit and Push
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add assets/github-stats.svg assets/top-langs.svg
-          git diff --staged --quiet || (git commit -m "chore: update cached GitHub stats" && git push)
+          # Only commit if there are changes to avoid empty commits
+          git diff --staged --quiet || (git commit -m "chore: update stats [skip ci]" && git push)
