@@ -6,7 +6,6 @@ on:
     - cron: '0 */12 * * *' # Updates every 12 hours
   workflow_dispatch:
 
-# 1. FIX: Give the bot permission to write (push) changes
 permissions:
   contents: write
 
@@ -20,19 +19,43 @@ jobs:
       - name: Create assets dir
         run: mkdir -p assets
 
-      - name: Download GitHub stats SVGs
+      - name: Download Stats using Python
         run: |
-          # 2. FIX: Added User-Agent to prevent 403 blocks from Vercel
-          curl -H "User-Agent: Mozilla/5.0" -sL -o assets/github-stats.svg "https://github-readme-stats.vercel.app/api?username=Shubham-275&show_icons=true&theme=radical&hide_border=true"
-          curl -H "User-Agent: Mozilla/5.0" -sL -o assets/top-langs.svg "https://github-readme-stats.vercel.app/api/top-langs/?username=Shubham-275&layout=compact&theme=radical&hide_border=true"
+          python3 -c "
+          import urllib.request
+          import sys
 
-      # 3. FIX: Check if files are empty before committing
-      - name: Verify Files
-        run: |
-          if [ ! -s assets/github-stats.svg ]; then
-            echo "Error: github-stats.svg is empty!"
-            exit 1
-          fi
+          # 1. Define the files and URLs
+          files = {
+              'assets/github-stats.svg': 'https://github-readme-stats.vercel.app/api?username=Shubham-275&show_icons=true&theme=radical&hide_border=true',
+              'assets/top-langs.svg': 'https://github-readme-stats.vercel.app/api/top-langs/?username=Shubham-275&layout=compact&theme=radical&hide_border=true'
+          }
+
+          # 2. Fake a browser User-Agent to bypass blocks
+          headers = {
+              'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+          }
+
+          for filename, url in files.items():
+              print(f'Downloading {filename}...')
+              try:
+                  req = urllib.request.Request(url, headers=headers)
+                  with urllib.request.urlopen(req) as response:
+                      data = response.read()
+                      
+                      # 3. CRITICAL: Check if the file is actually an SVG
+                      if b'<svg' not in data and b'<SVG' not in data:
+                          print(f'❌ Error: The server returned something that is NOT an SVG for {filename}.')
+                          print('Server response preview:', data[:200]) # Print error to logs
+                          sys.exit(1) # Fail the workflow so we don't commit garbage
+                      
+                      with open(filename, 'wb') as f:
+                          f.write(data)
+                      print(f'✅ Saved {filename}')
+              except Exception as e:
+                  print(f'❌ Failed to download {filename}: {e}')
+                  sys.exit(1)
+          "
 
       - name: Commit & push changes
         run: |
