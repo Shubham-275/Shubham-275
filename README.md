@@ -1,11 +1,8 @@
 <div align="center">
 
-<!-- Animated Header Banner -->
-<img src="https://capsule-render.vercel.app/api?type=waving&color=timeGradient&height=250&section=header&text=Shubham%20Khandelwal&fontSize=60&animation=fadeIn&fontAlignY=38&desc=Software%20Engineer%20%7C%20AI%20%26%20Automation&descAlignY=58" alt="Header Banner" />
-
 <!-- Dynamic Typing Effect -->
 <a href="https://git.io/typing-svg">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&pause=1000&color=0E75B6&center=true&vCenter=true&width=600&lines=I+build+AI+agents+and+Web+Apps;Automating+workflows+with+code;Tackling+real-world+problems+%E2%98%95" alt="Typing SVG" />
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=28&pause=1000&color=0E75B6&center=true&vCenter=true&width=800&lines=Hi,+I'm+Shubham+Khandelwal+%F0%9F%91%8B;I+build+AI+agents+and+Web+Apps;Automating+workflows+with+code;Tackling+real-world+problems+%E2%98%95" alt="Typing SVG" />
 </a>
 
 <br/>
@@ -82,9 +79,9 @@
 
 ---
 
-<!-- Animated Footer -->
+<!-- Footer -->
 <div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=transparent&height=100&section=footer&text=Let's%20Connect!&fontSize=30&animation=fadeIn" alt="Footer" />
+  <h2>Let's Connect!</h2>
 
   <br/>
 
